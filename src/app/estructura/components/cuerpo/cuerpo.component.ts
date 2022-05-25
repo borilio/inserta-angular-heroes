@@ -9,10 +9,8 @@ import { Heroe } from '../../models/heroe.model';
 })
 export class CuerpoComponent implements OnInit {
   public lista: Heroe[];
-  private _heroesService : HeroesService;
-
-  constructor(heroesService:HeroesService) {
-    this._heroesService = heroesService;
+ 
+  constructor(private _heroesService:HeroesService) {
     this.lista = [];
   }
 
@@ -22,4 +20,5 @@ export class CuerpoComponent implements OnInit {
     //pesadas desde el constructor
     this.lista = this._heroesService.getHeroes();
   }
+
 }
