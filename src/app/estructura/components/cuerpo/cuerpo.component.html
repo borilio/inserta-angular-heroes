@@ -20,6 +20,7 @@
                 <table class="table table-sm table-hover">
                   <thead>
                     <tr>
+                      <th>Imagen</th>
                       <th>Nombre</th>
                       <th>Poder</th>
                       <th>Honor</th>
@@ -29,11 +30,19 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <tr *ngFor="let heroe of lista" [class]="
+                    <tr *ngFor="let heroe of lista" class="align-middle" [class]="
                     {
                       'table-info' : heroe.honor > 70 ,
                       'table-danger' : heroe.honor < -70
                     }">
+                      <td>
+                        <img 
+                          [src]="heroe.imagen ? heroe.imagen : 'https://borilio.github.io/curso-angular/img/avatars/defaultheroe.svg'" 
+                          width="20rem" 
+                          [title]="heroe.nombre.toUpperCase()"
+                          [alt]="'Avatar de ' + heroe.nombre"
+                        />
+                      </td>
                       <td>{{heroe.nombre}}</td>
                       <td [class.table-warning]="heroe.poder > 200">{{heroe.poder}}</td>
                       <td>{{heroe.honor}}</td>
@@ -42,7 +51,13 @@
                       <td>{{heroe.vida}}</td>
                     </tr>
                   </tbody>
-                  <tfoot></tfoot>
+                  <tfoot>
+                    <tr>
+                      <td colspan="7">
+                        <span class="badge bg-info">{{this.lista.length}}</span><span>Personajes</span>
+                      </td>
+                    </tr>
+                  </tfoot>
                 </table>
               </div>
             </div>
