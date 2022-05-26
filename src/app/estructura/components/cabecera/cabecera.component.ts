@@ -7,7 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CabeceraComponent implements OnInit {
 
-  constructor() { }
+  public hoy: Date;
+
+  constructor() {
+    this.hoy = new Date();
+  }
 
   ngOnInit(): void {
   }
