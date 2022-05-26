@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-pie',
@@ -7,7 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PieComponent implements OnInit {
 
-  constructor() { }
+  @Input() public year: number;
+  @Input() public texto: string;
+ 
+
+  constructor() {
+    this.year = new Date().getFullYear();
+    this.texto = '© Superhéroes en Angular Nuevo Footer';
+  }
 
   ngOnInit(): void {
   }
