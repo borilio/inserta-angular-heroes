@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { HeroesService } from 'src/app/shared/services/heroes.service';
 import { Heroe } from '../../models/heroe.model';
 
@@ -9,7 +9,9 @@ import { Heroe } from '../../models/heroe.model';
 })
 export class ListadoTablaComponent implements OnInit {
   public lista: Heroe[];
- 
+
+  @Output() public eventoFavorito = new EventEmitter<Heroe>();
+  
   constructor(private _heroesService:HeroesService) {
     this.lista = [];
   }
@@ -19,5 +21,10 @@ export class ListadoTablaComponent implements OnInit {
     //Hacemos la llamada al servicio desde en ngOnInit, ya que no se aconseja hacer tareas
     //pesadas desde el constructor
     this.lista = this._heroesService.getHeroes();
+  }
+
+  public seleccionarFavorito(heroe : Heroe) {
+    console.log("El hijo le dice al padre... mi héroe favorito es " + heroe.nombre);
+    this.eventoFavorito.emit(heroe);
   }
 }

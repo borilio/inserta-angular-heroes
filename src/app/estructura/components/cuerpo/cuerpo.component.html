@@ -4,12 +4,19 @@
     <div class="row">
       <!-- columna izquierda -->
       <div class="col">
-        
+        <div *ngIf="heroeFavorito" class="sticky-top" id="favorito">
+          <div class="alert alert-warning">
+            <img [src]="heroeFavorito.imagen" width="50rem" alt="">
+            <h4>❤{{ heroeFavorito.nombre }}</h4>
+            <hr>
+            <button (click)="borrarFavorito()" class="btn btn-warning btn-sm" >Borrar</button>
+          </div>
+        </div>
       </div>
 
       <!-- columna central -->
       <div class="col-12 col-sm-8 col-md-6 col-lg-4">
-        <app-listado-tabla></app-listado-tabla>
+        <app-listado-tabla (eventoFavorito)="procesarFavorito($event)" ></app-listado-tabla>
       </div>
 
       <!-- columna derecha -->

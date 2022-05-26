@@ -9,11 +9,21 @@ import { Heroe } from '../../models/heroe.model';
 })
 export class CuerpoComponent implements OnInit {
   
+  public heroeFavorito? : Heroe | null;
  
   constructor() {
   }
 
   ngOnInit(): void {
+  }
+
+  public procesarFavorito(heroeEnviado: Heroe) {
+    console.log("El padre le dice al hijo... estoy capturando tu evento. He recibido ->", heroeEnviado);
+    this.heroeFavorito = heroeEnviado;
+  }
+
+  public borrarFavorito(){
+    this.heroeFavorito = null;
   }
 
 }

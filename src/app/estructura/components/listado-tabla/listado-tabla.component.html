@@ -21,7 +21,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr *ngFor="let heroe of lista" class="align-middle" [class]="
+                        <tr (click)="seleccionarFavorito(heroe)" *ngFor="let heroe of lista" class="align-middle" [class]="
                             {
                                 'table-info' : heroe.honor > 70 ,
                                 'table-danger' : heroe.honor < -70
