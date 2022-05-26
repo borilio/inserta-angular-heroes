@@ -1,0 +1,54 @@
+<!-- Tarjeta -->
+<div id="tarjeta" class="card shadow">
+    <img class="card-img-top" src="/assets/img/banner.jpg" alt="banner" />
+    <div class="card-body">
+        <h5 class="card-title">Lista de héroes</h5>
+        <div class="card-text">
+            <div *ngIf="lista.length === 0" class="alert alert-warning">
+                <span>No hay elementos que mostrar</span>
+            </div>
+            <div id="tabla" class="table-responsive">
+                <table class="table table-sm table-hover">
+                    <thead>
+                        <tr>
+                            <th>Imagen</th>
+                            <th>Nombre</th>
+                            <th>Poder</th>
+                            <th>Honor</th>
+                            <th>Ataque</th>
+                            <th>Defensa</th>
+                            <th>Vida</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let heroe of lista" class="align-middle" [class]="
+                            {
+                                'table-info' : heroe.honor > 70 ,
+                                'table-danger' : heroe.honor < -70
+                            }">
+                            <td>
+                                <img [src]="heroe.imagen ? heroe.imagen : 'https://borilio.github.io/curso-angular/img/avatars/defaultheroe.svg'"
+                                    width="20rem" [title]="heroe.nombre.toUpperCase()"
+                                    [alt]="'Avatar de ' + heroe.nombre" />
+
+                            </td>
+                            <td>{{heroe.nombre}}</td>
+                            <td [class.table-warning]="heroe.poder > 200">{{heroe.poder}}</td>
+                            <td>{{heroe.honor}}</td>
+                            <td>{{heroe.ataque}}</td>
+                            <td>{{heroe.defensa}}</td>
+                            <td>{{heroe.vida}}</td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="7">
+                                <span class="badge bg-info">{{this.lista.length}}</span><span>Personajes</span>
+                            </td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

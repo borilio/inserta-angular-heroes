@@ -8,17 +8,12 @@ import { Heroe } from '../../models/heroe.model';
   styleUrls: ['./cuerpo.component.css'],
 })
 export class CuerpoComponent implements OnInit {
-  public lista: Heroe[];
+  
  
-  constructor(private _heroesService:HeroesService) {
-    this.lista = [];
+  constructor() {
   }
 
-  //El método ngOnInit se ejecuta inmediatamente después del constructor()
   ngOnInit(): void {
-    //Hacemos la llamada al servicio desde en ngOnInit, ya que no se aconseja hacer tareas
-    //pesadas desde el constructor
-    this.lista = this._heroesService.getHeroes();
   }
 
 }
