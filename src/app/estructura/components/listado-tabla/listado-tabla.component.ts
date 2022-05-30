@@ -21,6 +21,8 @@ export class ListadoTablaComponent implements OnInit {
     //Hacemos la llamada al servicio desde en ngOnInit, ya que no se aconseja hacer tareas
     //pesadas desde el constructor
     this.lista = this._heroesService.getHeroes();
+
+    console.log("Arrancamos el componente ListadoTablaComponent");
   }
 
   public seleccionarFavorito(heroe : Heroe) {

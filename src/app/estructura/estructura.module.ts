@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SharedModule } from '../shared/shared.module';
+import { AppRoutingModule } from '../app-routing.module';
 
 import { CabeceraComponent } from './components/cabecera/cabecera.component';
 import { CuerpoComponent } from './components/cuerpo/cuerpo.component';
@@ -11,6 +12,7 @@ import { NavegacionComponent } from './components/navegacion/navegacion.componen
 import { ListadoTarjetaComponent } from './components/listado-tarjeta/listado-tarjeta.component';
 import { HomeComponent } from './components/home/home.component';
 import { BarraComponent } from './components/barra/barra.component';
+import { Error404Component } from './components/error404/error404.component';
 
 
 @NgModule({
@@ -24,13 +26,15 @@ import { BarraComponent } from './components/barra/barra.component';
     ListadoTarjetaComponent,
     HomeComponent,
     BarraComponent,
+    Error404Component,
   ],
   exports : [
     PagePrincipalComponent
   ], 
   imports: [
     CommonModule,
-    SharedModule
+    SharedModule,
+    AppRoutingModule
   ]
 })
 export class EstructuraModule { }
