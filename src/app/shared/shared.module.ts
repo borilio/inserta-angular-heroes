@@ -1,11 +1,16 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HeroesService } from './services/heroes.service';
-
+import { EsPeligrosoPipe } from './pipes/es-peligroso.pipe';
 
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    EsPeligrosoPipe
+  ],
+  exports : [
+    EsPeligrosoPipe
+  ],
   imports: [
     CommonModule
   ],

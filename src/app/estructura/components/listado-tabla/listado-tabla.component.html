@@ -14,6 +14,7 @@
                             <th>Imagen</th>
                             <th>Nombre</th>
                             <th>Poder</th>
+                            <th>Peligroso</th>
                             <th>Honor</th>
                             <th>Ataque</th>
                             <th>Defensa</th>
@@ -34,6 +35,7 @@
                             </td>
                             <td>{{heroe.nombre}}</td>
                             <td [class.table-warning]="heroe.poder > 200">{{heroe.poder}}</td>
+                            <td>{{heroe | esPeligroso }}</td>
                             <td>{{heroe.honor}}</td>
                             <td>{{heroe.ataque}}</td>
                             <td>{{heroe.defensa}}</td>
@@ -42,7 +44,7 @@
                     </tbody>
                     <tfoot>
                         <tr>
-                            <td colspan="7">
+                            <td colspan="8">
                                 <span class="badge bg-info">{{this.lista.length}}</span><span>Personajes</span>
                             </td>
                         </tr>
