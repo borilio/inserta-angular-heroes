@@ -1,20 +1,9 @@
-export class Heroe {
-  //Constructor sintaxis azucarada
-  constructor(
-    public nombre: string,
-    public poder: number,
-    public honor: number,
-    public ataque: number,
-    public defensa: number,
-    public vida: number,
-    public imagen: string
-  ) {}
-
-  public esPoderoso(): boolean {
-    return this.poder > 200;
-  }
-
-  public esVillano(): boolean {
-    return this.honor < -50;
-  }
+export interface Heroe {
+  nombre: string;
+  poder: number;
+  honor: number;
+  ataque: number;
+  defensa: number;
+  vida: number;
+  imagen: string;
 }
