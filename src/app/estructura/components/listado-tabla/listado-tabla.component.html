@@ -13,38 +13,24 @@
                         <tr>
                             <th>Imagen</th>
                             <th>Nombre</th>
-                            <th>Poder</th>
-                            <th>Peligroso</th>
-                            <th>Honor</th>
-                            <th>Ataque</th>
-                            <th>Defensa</th>
                             <th>Vida</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr (click)="seleccionarFavorito(heroe)" *ngFor="let heroe of lista" class="align-middle" [class]="
-                            {
-                                'table-info' : heroe.honor > 70 ,
-                                'table-danger' : heroe.honor < -70
-                            }">
+                        <tr (click)="seleccionarFavorito(heroe)" *ngFor="let heroe of lista" class="align-middle">
                             <td>
                                 <img [src]="heroe.imagen ? heroe.imagen : 'https://borilio.github.io/curso-angular/img/avatars/defaultheroe.svg'"
                                     width="20rem" [title]="heroe.nombre.toUpperCase()"
-                                    [alt]="'Avatar de ' + heroe.nombre" />
-
+                                    [alt]="'Avatar de ' + heroe.nombre"
+                                />
                             </td>
                             <td>{{heroe.nombre}}</td>
-                            <td [class.table-warning]="heroe.poder > 200">{{heroe.poder}}</td>
-                            <td>{{heroe | esPeligroso }}</td>
-                            <td>{{heroe.honor}}</td>
-                            <td>{{heroe.ataque}}</td>
-                            <td>{{heroe.defensa}}</td>
                             <td>{{heroe.vida}}</td>
                         </tr>
                     </tbody>
                     <tfoot>
                         <tr>
-                            <td colspan="8">
+                            <td colspan="3">
                                 <span class="badge bg-info">{{this.lista.length}}</span><span>Personajes</span>
                             </td>
                         </tr>
