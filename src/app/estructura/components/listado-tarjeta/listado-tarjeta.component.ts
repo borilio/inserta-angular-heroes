@@ -14,8 +14,12 @@ export class ListadoTarjetaComponent implements OnInit {
   constructor(private _heroesService: HeroesService) {
   }
   
+  //TODO: Usar el servicio para obtener el observable y suscribirnos para obtener el array
+
   ngOnInit(): void {
-    this.heroes = this._heroesService.getHeroes();
+    this.heroes = [];
+    let datos = this._heroesService.getHeroes();
+    console.log(datos);
     console.log("Arrancamos el componente ListadoTarjetaComponent");
   }
 

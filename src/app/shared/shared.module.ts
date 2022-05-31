@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HeroesService } from './services/heroes.service';
 import { EsPeligrosoPipe } from './pipes/es-peligroso.pipe';
-
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -12,7 +12,8 @@ import { EsPeligrosoPipe } from './pipes/es-peligroso.pipe';
     EsPeligrosoPipe
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    HttpClientModule
   ],
   providers: [ 
     HeroesService 

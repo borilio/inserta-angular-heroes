@@ -4,10 +4,19 @@
     <div class="card-body">
         <h5 class="card-title">Lista de héroes</h5>
         <div class="card-text">
-            <div *ngIf="lista.length === 0" class="alert alert-warning">
+            <div *ngIf="this.error" class="alert alert-danger">
+                <strong>{{this.error.status}} </strong>
+                <span>Hubo un error en la petición ajax</span>
+            </div>
+            <div id="cargando" *ngIf="cargando">
+                <div class="spinner-border" role="status">
+                    <span class="visually-hidden">Obteniendo información...</span>
+                </div>
+            </div>
+            <div *ngIf="!this.cargando && this.lista.length === 0 && !this.error" class="alert alert-warning">
                 <span>No hay elementos que mostrar</span>
             </div>
-            <div id="tabla" class="table-responsive">
+            <div *ngIf="!this.cargando && this.lista.length > 0 " id="tabla" class="table-responsive">
                 <table class="table table-sm table-hover">
                     <thead>
                         <tr>
