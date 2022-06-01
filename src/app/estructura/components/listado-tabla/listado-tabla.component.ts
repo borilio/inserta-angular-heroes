@@ -22,23 +22,26 @@ export class ListadoTablaComponent implements OnInit {
 
   //El método ngOnInit se ejecuta inmediatamente después del constructor()
   ngOnInit(): void {
+    //Así mostramos la animación de carga...
+    this.cargando = true;
     //Hacemos la llamada al servicio desde en ngOnInit, ya que no se aconseja hacer tareas
     //pesadas desde el constructor
     let datosQueLlegaran = this._heroesService.getHeroes();
-    this.cargando = true;
-    datosQueLlegaran.subscribe(
-      (respuesta) => {
-        console.log("Todo ha ido bien", respuesta);
-        this.lista = respuesta;
-        this.cargando = false;
+    datosQueLlegaran.subscribe({
+      next: (resp) => {
+        console.log("Tenemos respuesta", resp);
+        this.lista = resp;
       },
-      (error) => {
-        console.error("Hubo un error en la petición GET a la url", error);
+      error: (error) => {
+        console.error("Hubo un error en la petición", error);
         this.lista = [];
-        this.error = error;
-        this.cargando = false;
+      },
+      complete: () => {
+        //Este método será ejecutado SIEMPRE
+        console.log("Terminamos con la petición");
+        this.cargando = false;        
       }
-    );
+    });
 
     console.log("Arrancamos el componente ListadoTablaComponent");
   }
