@@ -10,16 +10,31 @@ import { Heroe } from '../../models/heroe.model';
 export class ListadoTarjetaComponent implements OnInit {
 
   public heroes?: Heroe[];
+  public cargando: boolean;
 
   constructor(private _heroesService: HeroesService) {
+    this.cargando = false;
   }
   
-  //TODO: Usar el servicio para obtener el observable y suscribirnos para obtener el array
-
   ngOnInit(): void {
     this.heroes = [];
+    this.cargando = true; //comenzamos la animación de carga
     let datos = this._heroesService.getHeroes();
-    console.log(datos);
+    datos.subscribe({
+      next: (respuesta) => {
+        this.heroes = respuesta;
+      },
+      error: (error) => {
+        this.heroes = [];
+        console.error("Hubo un error en la petición", error);
+        
+      },
+      complete: () => {
+        this.cargando = false;
+      }
+    });
+
+
     console.log("Arrancamos el componente ListadoTarjetaComponent");
   }
 

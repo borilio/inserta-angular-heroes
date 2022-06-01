@@ -1,5 +1,11 @@
+<!-- Spinner con el proceso de carga de las tarjetas -->
+<div *ngIf="this.cargando" class="text-center">
+  <div class="spinner-border" style="width: 5rem; height: 5rem;" role="status">
+    <span class="visually-hidden">Cargando...</span>
+  </div>
+</div>
+
 <!-- Grupo de tarjetas -->
-<!-- En próximas actualizaciones podemos reordenar las tarjetas-->
 <div>
     <!-- Cada tarjeta individual -->
     <ng-container *ngFor="let heroe of heroes">
@@ -30,7 +36,7 @@
                   <app-barra
                     [texto]="'❤ Vida (' + heroe.vida + ')'"
                     [valor]="heroe.vida"
-                    [ancho]="'2rem'"
+                    [alto]="'2rem'"
                     [fuente]="5"
                     [color]="'bg-danger'"
                   ></app-barra>
@@ -39,7 +45,7 @@
                   <app-barra
                     [texto]="'👊🏼 Ataque (' + heroe.ataque + ')'"
                     [valor]="heroe.ataque"
-                    [ancho]="'1.5rem'"
+                    [alto]="'1.5rem'"
                     [fuente]="6"
                     [color]="'bg-success'"
                   ></app-barra>
@@ -48,7 +54,7 @@
                   <app-barra
                     [texto]="'🛡 Defensa (' + heroe.defensa + ')'"
                     [valor]="heroe.defensa"
-                    [ancho]="'1.5rem'"
+                    [alto]="'1.5rem'"
                     [fuente]="6"
                     [color]="'bg-warning'"
                   ></app-barra>
@@ -58,7 +64,7 @@
                     [texto]="'⚡ Poder (' + heroe.poder + ')'"
                     [valor]="heroe.poder"
                     [max]="400"
-                    [ancho]="'1.5rem'"
+                    [alto]="'1.5rem'"
                     [fuente]="6"
                     [color]="'bg-info'"
                   ></app-barra>
@@ -72,5 +78,5 @@
         </div>
       </div>
     </ng-container>
-  </div>
+</div>
   
